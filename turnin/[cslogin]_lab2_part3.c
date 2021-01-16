@@ -18,8 +18,8 @@ int main(void) {
     unsigned char cntavail;
     unsigned char isfull;
 while(1) {
-	isfull = (PINA == 0x0F) << 7;
-	cntavail = PINA;
+	    isfull = ((PINA & 0x0F) == 0x0F) << 7;
+	    cntavail = !(PINA & 0x01) + !(PINA & 0x02) + !(PINA & 0x04) + !(PINA & 0x08);
 
         PORTC = cntavail + isfull;
     }

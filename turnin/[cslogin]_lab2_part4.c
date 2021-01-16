@@ -31,7 +31,7 @@ while(1) {
 	    total /= 2;
 	}
 
-	total = total << 2;
+	total = ((total & 0x3) == 0x0) ? total : total << 2;
 	difference = difference << 1;
 
         PORTD = ismax + difference + total;
